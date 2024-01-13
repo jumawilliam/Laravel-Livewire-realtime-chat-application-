@@ -16,7 +16,8 @@ $send=function(){
    NewMessageEvent::dispatch($message);
 };
 
-on(['echo-private:newmessage,NewMessageEvent'=>function(){
+on(['echo-private:newmessage,NewMessageEvent'=>function($data){
+    //you can access the event data by checking the $data property passed in the closure of the method.
     $this->messages=Message::all();
 }]);
 
